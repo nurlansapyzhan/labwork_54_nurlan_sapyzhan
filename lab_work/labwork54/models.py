@@ -7,6 +7,10 @@ class Category(models.Model):
     category_name = models.CharField(max_length=500, null=False, blank=False, verbose_name='Наименование категории')
     category_description = models.CharField(max_length=2000, null=True, verbose_name='Описание категории')
 
+    class Meta:
+        verbose_name = 'Category'
+        verbose_name_plural = 'Categories'
+
     def __str__(self):
         return f'Category - {self.category_name}'
 
@@ -20,6 +24,9 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='Цена')
     image = models.CharField(max_length=200000, null=True, verbose_name='Изображение')
 
+    class Meta:
+        verbose_name = 'Product'
+        verbose_name_plural = 'Products'
 
     def __str__(self):
         return f'Product - {self.product_name}'

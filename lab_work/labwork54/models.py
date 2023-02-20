@@ -29,4 +29,4 @@ class Product(models.Model):
         verbose_name_plural = 'Products'
 
     def __str__(self):
-        return f'Product - {self.product_name}'
+        return f'Product - {self.product_name}. Added date - {self.added_date.strftime("%d/%m/%Y %H:%M")}'

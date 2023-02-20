@@ -19,5 +19,20 @@ def category_add_view(request: WSGIRequest):
         'category_name': request.POST.get('category_name'),
         'category_description': request.POST.get('category_description')
     }
-    category = Category.objects.create(**category_data)
+    Category.objects.create(**category_data)
     return redirect('index')
+
+
+def product_add_view(request: WSGIRequest):
+    if request.method == 'GET':
+        categories = Category.objects.all()
+        return render(request, 'product_add.html', context={'categories': categories})
+    product_data = {
+        'product_name': request.POST.get('product_name'),
+        'price': request.POST.get('price'),
+        'image': request.POST.get('image'),
+        'category_id': request.POST.get('category_id'),
+        'description': request.POST.get('description')
+    }
+    product = Product.objects.create(**product_data)
+    return redirect('product_detail', product.pk)

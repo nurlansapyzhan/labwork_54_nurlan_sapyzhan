@@ -12,14 +12,14 @@
 <div class="header">
     <nav class="navbar navbar-expand-lg navbar-light bg-light ps-5">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/">My market</a>
+            <a class="navbar-brand" href="{% url 'index' %}">My market</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                     aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="ms-5 navbar-nav">
-                    <a class="nav-link" href="/">Products</a>
+                    <a class="nav-link" href="{% url 'index' %}">Products</a>
                     <a class="nav-link" href="#">Add Product</a>
                     <a class="nav-link" href="#">Add Category</a>
                 </div>
@@ -27,7 +27,7 @@
         </div>
     </nav>
 </div>
-<div class="container">
+<div class="container mt-3">
     <div class="row row-cols-1 row-cols-md-3 g-4">
         {% for product in products %}
             <div class="col">

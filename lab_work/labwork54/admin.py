@@ -7,7 +7,7 @@ from labwork54.models import Product, Category
 class ProductAdmin(admin.ModelAdmin):
     list_display = ('product_name', 'description', 'category', 'added_date', 'price', 'image')
     list_filter = ('product_name', 'category', 'added_date', 'price')
-    search_fields = ('product_name', 'category', 'price')
+    search_fields = ('product_name', 'category', 'price', 'added_date')
     fields = ('product_name', 'description', 'category', 'added_date', 'price', 'image')
     readonly_fields = ('id', 'added_date')
 

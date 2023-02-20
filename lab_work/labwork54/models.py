@@ -21,7 +21,7 @@ class Product(models.Model):
     category = models.ForeignKey(to=Category, verbose_name='Категория продукта', null=False, blank=False,
                                  related_name='products', on_delete=models.CASCADE)
     added_date = models.DateTimeField(auto_now=True, verbose_name='Дата и время добавления', null=True)
-    price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Цена')
+    price = models.DecimalField(max_digits=10, decimal_places=3, verbose_name='Цена')
     image = models.CharField(max_length=200000, null=False, verbose_name='Изображение', default='')
 
     class Meta:

@@ -7,11 +7,12 @@
     <a class="nav-link" href="{% url 'add_category' %}">Add Category</a>
 {% endblock %}
 {% block content %}
+    <h1>Categories</h1>
     {% for category in categories %}
         <div class="card w-75 mt-3">
             <div class="card-body">
                 <h5 class="card-title">{{ category.category_name }}</h5>
-                <a href="#" class="btn btn-secondary">Edit</a>
+                <a href="{% url 'edit_category' category.pk %}" class="btn btn-secondary">Edit</a>
                 <a href="{% url 'delete_category' category.pk %}" class="btn btn-secondary">Delete</a>
             </div>
         </div>

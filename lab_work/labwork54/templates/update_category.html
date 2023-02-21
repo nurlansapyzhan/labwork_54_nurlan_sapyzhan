@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}
+    Edit category
+{% endblock %}
+{% block menu %}
+    <a class="nav-link" href="{% url 'categories' %}">Categories</a>
+    <a class="nav-link" href="{% url 'add_product' %}">Add Product</a>
+    <a class="nav-link" href="{% url 'add_category' %}">Add Category</a>
+{% endblock %}
+{% block content %}
+    <h1>Edit Category</h1>
+    <div class="form">
+        <form action="{% url 'edit_category' category.pk %}" method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <input type="text" class="form-control" id="category_name" name="category_name"
+                       value="{{ category.category_name }}">
+            </div>
+            <div class="mb-3">
+                <input type="text" class="form-control" id="category_description" name="category_description"
+                       value="{{ category.category_description }}">
+            </div>
+            <button type="submit" class="btn btn-secondary">Edit category</button>
+        </form>
+    </div>
+{% endblock %}

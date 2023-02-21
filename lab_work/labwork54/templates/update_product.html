@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}
+    Edit product
+{% endblock %}
+{% block menu %}
+    <a class="nav-link" href="{% url 'add_product' %}">Add Product</a>
+    <a class="nav-link" href="{% url 'add_category' %}">Add Category</a>
+{% endblock %}
+{% block content %}
+    <h1>Edit Product</h1>
+    <div class="form">
+        <form action="{% url 'edit_product' product.pk %}" method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <input type="text" class="form-control" id="product_name" name="product_name" placeholder="Title"
+                       value="{{ product.product_name }}">
+            </div>
+            <div class="mb-3">
+                <input type="number" class="form-control" id="price" name="price" placeholder="Price"
+                       value="{{ product.price }}">
+            </div>
+            <div class="mb-3">
+                <input type="text" class="form-control" id="image" name="image" placeholder="Image url"
+                       value="{{ product.image }}">
+            </div>
+            <select class="form-select mb-3" aria-label="Category" name="category_id">
+                <option disabled selected>{{ product.category }}</option>
+                {% for category in categories %}
+                    <option value="{{ category.id }}"
+                    >{{ category.category_name }}</option>
+                {% endfor %}
+            </select>
+            <div class="mb-3">
+                <input type="text" class="form-control" id="description" name="description" placeholder="Image url"
+                       value="{{ product.description }}">
+            </div>
+            <button type="submit" class="btn btn-secondary">Edit product</button>
+        </form>
+    </div>
+{% endblock %}

@@ -52,3 +52,23 @@ def category_update_view(request: WSGIRequest, pk):
     category.category_description = request.POST.get('category_description')
     category.save()
     return redirect('categories')
+
+
+def product_delete_view(request: WSGIRequest, pk):
+    product = get_object_or_404(Product, pk=pk)
+    product.delete()
+    return redirect('index')
+
+
+def product_update_view(request: WSGIRequest, pk):
+    product = get_object_or_404(Product, pk=pk)
+    categories = Category.objects.all()
+    if request.method == 'GET':
+        return render(request, 'update_product.html', context={'product': product, 'categories': categories})
+    product.product_name = request.POST.get('product_name')
+    product.price = request.POST.get('price')
+    product.image = request.POST.get('image')
+    product.category_id = request.POST.get('category_id')
+    product.description = request.POST.get('description')
+    product.save()
+    return redirect('product_detail', product.pk)

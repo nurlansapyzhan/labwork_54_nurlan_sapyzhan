@@ -12,7 +12,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{ category.category_name }}</h5>
                 <a href="#" class="btn btn-secondary">Edit</a>
-                <a href="#" class="btn btn-secondary">Delete</a>
+                <a href="{% url 'delete_category' category.pk %}" class="btn btn-secondary">Delete</a>
             </div>
         </div>
     {% endfor %}

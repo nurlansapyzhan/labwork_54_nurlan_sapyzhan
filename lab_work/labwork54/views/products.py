@@ -38,3 +38,7 @@ def product_add_view(request: WSGIRequest):
     return redirect('product_detail', product.pk)
 
 
+def category_delete_view(request: WSGIRequest, pk):
+    category = get_object_or_404(Category, pk=pk)
+    category.delete()
+    return redirect('categories')

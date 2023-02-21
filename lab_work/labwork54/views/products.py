@@ -36,3 +36,5 @@ def product_add_view(request: WSGIRequest):
     }
     product = Product.objects.create(**product_data)
     return redirect('product_detail', product.pk)
+
+

@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block title %}Main page{% endblock %}
 {% block menu %}
+    <a class="nav-link" href="{% url 'categories' %}">Categories</a>
     <a class="nav-link" href="{% url 'add_product' %}">Add Product</a>
     <a class="nav-link" href="{% url 'add_category' %}">Add Category</a>
 {% endblock %}
